@@ -1,0 +1,57 @@
+Room Repo Get rooms stress test
+
+All virtual users finished
+Summary report @ 16:21:31(+0200) 2021-05-31
+  Scenarios launched:  33554
+  Scenarios completed: 33548
+  Requests completed:  33548
+  Mean response/sec: 42.97
+  Response time (msec):
+    min: 26
+    max: 4801
+    median: 32
+    p95: 39
+    p99: 56
+  Scenario counts:
+    Get rooms: 33554 (100%)
+  Codes:
+    200: 33548
+  Errors:
+    ETIMEDOUT: 6
+
+All virtual users finished
+Summary report @ 18:46:32(+0200) 2021-05-31
+  Scenarios launched:  33658
+  Scenarios completed: 33658
+  Requests completed:  33658
+  Mean response/sec: 43.1
+  Response time (msec):
+    min: 32
+    max: 289
+    median: 35
+    p95: 42
+    p99: 48
+  Scenario counts:
+    Get users: 33658 (100%)
+  Codes:
+    200: 33658
+
+All virtual users finished
+Summary report @ 18:50:25(+0200) 2021-05-31
+  Scenarios launched:  120
+  Scenarios completed: 120
+  Requests completed:  517
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 2.3
+    median: 0.1
+    p95: 0.2
+    p99: 0.3
+  Scenario counts:
+    Busy boys: 19 (15.833%)
+    Lurker: 84 (70%)
+    A mostly quiet user: 17 (14.167%)
+  Codes:
+    0: 517
+  engine.socketio.emit: 517

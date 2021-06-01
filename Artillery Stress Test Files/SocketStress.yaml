@@ -1,0 +1,45 @@
+config:
+  target: "https://federicoshytte.dk"
+  socketio:
+    transports: ["websocket"]
+  engines:
+   socketio-v3: {}
+  phases:
+    - duration: 20
+      arrivalRate: 10
+    - duration: 20
+      arrivalRate: 50
+
+scenarios:
+  - name: "Lurker"
+    weight: 75
+    engine: socketio-v3
+    flow:
+      - emit: ["login", "{{ $randomString() }}:fa172e4b-9354-47c1-bcda-bd6a4b21155c"]
+        namespace: /rooms
+      - think: 60
+  - name: "A mostly quiet user"
+    weight: 15
+    engine: socketio-v3
+    flow:
+      - emit: ["login", "{{ $randomString() }}:fa172e4b-9354-47c1-bcda-bd6a4b21155c"]
+        namespace: /rooms
+      - think: 5
+      - emit: ["onChatMessage", "Tester"]
+        namespace: /rooms
+      - think: 60
+  - name: "Busy boys"
+    weight: 15
+    engine: socketio-v3
+    flow:
+      - emit: ["login", "{{ $randomString() }}:fa172e4b-9354-47c1-bcda-bd6a4b21155c"]
+        namespace: /rooms
+      - think: 5
+      - loop:
+        - emit: ["onChatMessage", "Tester"]
+          namespace: /rooms
+        - think: 1
+        count: 20
+      - think: 60
+
+
